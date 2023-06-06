@@ -37,7 +37,6 @@ with DAG(
     dag_id = 'sensehat1_to_sql'
     ,description = 'this dag moves data from sense hat id 1 to postgres database'
     ,start_date=datetime(2022,12,10)
-    ,end_date=datetime(2022,12,12)
     ,catchup = True
     ,schedule_interval = '00 3 * * *'
     ,params={
