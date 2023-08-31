@@ -58,13 +58,19 @@ As of August 20, 2023, the queries below have the following results.
 1 |        463939
 ```
 
+When graphed in ggplot the data appear as follows.  
+
+<img src="img/temperature.png" width="100%"/>
+<img src="img/humidity.png" width="100%"/>
+<img src="img/pressure.png" width="100%"/>
+
 ### Possible Extensions
 
 Create a recurring jupyter notebook report which demonstrates the database state, updated on a regular basis.
 
 Adding a second raspberrypi-sensehat, placing it in my living room to look for any deviations between rooms.  
 
-Comparing the ambient measures in my bedroom (and/or living room) against the external weather to estimate my electricity and/or heating bill.
+Comparing the ambient measures in my bedroom (and/or living room) against the external weather to estimate my electricity and/or heating bill.  
 
 ### To-Do
 
