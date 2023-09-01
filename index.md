@@ -58,7 +58,7 @@ As of August 20, 2023, the queries below have the following results.
 1 |        463939
 ```
 
-When graphed in ggplot the data appear as follows.  
+When graphed in R's ggplot the data appear as follows.  
 
 <img src="img/temperature.png" width="100%"/>
 <img src="img/humidity.png" width="100%"/>
