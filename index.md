@@ -35,7 +35,7 @@ I have also set up a [PostgreSQL](https://www.postgresql.org/) database and sche
 
 ## Where Things Stand  
 
-The data currently look as follows:  
+The data look as follows:  
 
 ```
 # select * from ambience.readings limit 5;  
@@ -66,7 +66,7 @@ When graphed in R's ggplot the data appear as follows.
 
 ### Possible Extensions
 
-Create a recurring jupyter notebook report which demonstrates the database state, updated on a regular basis.
+Create a recurring jupyter notebook or Rmarkdown report which demonstrates the database state, updated on a regular basis.  
 
 Adding a second raspberrypi-sensehat, placing it in my living room to look for any deviations between rooms.  
 
@@ -76,18 +76,18 @@ Comparing the ambient measures in my bedroom (and/or living room) against the ex
 
 Explore adding a pi-specific id to the `ambience.location` table---potentially a pi-specific table.  
 
-Find a non-hardcoded mechanism by which to associate pi readings with a given location/pi.
+Find a non-hardcoded mechanism by which to associate pi readings with a given location/pi.  
 
 ## Concluding Thoughts
 
 Does this code make use of best practices?  
-*Likely not.  I make no claims to being a data engineer.*
+*Likely not.  I make no claims to being a data engineer.*  
 
 Does it work?  
-*It does.*
+*It does.*  
 
 Have you done anything with this data?  
-*Not yet.  I am still in the data-gathering phase.*
+*Not yet.  I am still in the data-gathering phase.*  
 
 # Tools Applied / Learned 
 
