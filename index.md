@@ -67,7 +67,7 @@ When graphed in R's ggplot the data appear as follows.
 ### Possible Extensions
 
 Create a recurring jupyter notebook or Rmarkdown report which demonstrates the database state, updated on a regular basis.  
-[Done](reports/dailyReportForm.html)
+[Done](reports/dailyReportForm.html)!  Just need to make it recurring.
 
 Adding a second raspberrypi-sensehat, placing it in my living room to look for any deviations between rooms.  
 
