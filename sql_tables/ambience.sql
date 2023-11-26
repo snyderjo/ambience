@@ -14,7 +14,7 @@ create table if not exists ambience_test.location
 create table if not exists ambience_test.pi
 (
     id serial PRIMARY KEY,
-    hostname text not null DEFAULT "raspberrypihat"
+    hostname text not null
 )
 
 alter table if exists ambience_test.location
