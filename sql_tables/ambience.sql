@@ -19,7 +19,8 @@ create table if not exists ambience_test.pi
 
 alter table if exists ambience_test.location
 add if not exists active int DEFAULT 1,
-add if not exists endRecordDt date DEFAULT null
+add if not exists timezone text default "MST",
+add if not exists endRecordDt date DEFAULT null,
 add if not exists pi_ID int DEFAULT 1;
 
 
