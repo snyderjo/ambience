@@ -11,6 +11,18 @@ create table if not exists ambience_test.location
     room text NOT NULL 
 );
 
+create table if not exists ambience_test.pi
+(
+    id serial PRIMARY KEY,
+    hostname text not null DEFAULT "raspberrypihat"
+)
+
+alter table if exists ambience_test.location
+add if not exists active int DEFAULT 1,
+add if not exists endRecordDt date DEFAULT null
+add if not exists pi_ID int DEFAULT 1;
+
+
 create table if not exists ambience_test.readings
 (
     reading_id uuid DEFAULT gen_random_uuid () PRIMARY KEY,
