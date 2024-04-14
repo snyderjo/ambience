@@ -8,19 +8,21 @@ create table if not exists ambience_test.location
     city_nm text NOT NULL,
     state_abbr text NOT NULL,
     zip int NOT NULL,
-    room text NOT NULL 
+    room text NOT NULL
 );
 
 create table if not exists ambience_test.pi
 (
     id serial PRIMARY KEY,
-    hostname text not null,
-    pathname text default "/home/pi/Documents/projects/ambience/output"
+    hostname text NOT NULL,
+    username text NOT NULL,
+    pathname text DEFAULT "/home/pi/Documents/projects/ambience/output"
 );
 
 alter table if exists ambience_test.location
 add if not exists active boolean DEFAULT true,
-add if not exists timezone text default "MST",
+add if not exists timezone text DEFAULT "America/Denver",
+add if not exists startRecordDt date DEFAULT '2022-12-22',
 add if not exists endRecordDt date DEFAULT null,
 add if not exists pi_ID int DEFAULT 1;
 
@@ -29,7 +31,7 @@ create table if not exists ambience_test.readings
 (
     reading_id uuid DEFAULT gen_random_uuid () PRIMARY KEY,
     reading_dttm timestamptz NOT NULL,
-    temp float, 
+    temp float,
     pressure float,
     humidity float,
     pitch float,
@@ -44,7 +46,7 @@ create table if not exists ambience_test.readings
 create table if not exists ambience_test.readings_stage
 (
     reading_dttm timestamp with time zone NOT NULL,
-    temp float, 
+    temp float,
     pressure float,
     humidity float,
     pitch float,
