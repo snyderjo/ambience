@@ -16,12 +16,12 @@ create table if not exists ambience_test.pi
     id serial PRIMARY KEY,
     hostname text NOT NULL,
     username text NOT NULL,
-    pathname text DEFAULT "/home/pi/Documents/projects/ambience/output"
+    pathname text Not NULL DEFAULT '/home/pi/Documents/projects/ambience/output'
 );
 
 alter table if exists ambience_test.location
 add if not exists active boolean DEFAULT true,
-add if not exists timezone text DEFAULT "America/Denver",
+add if not exists timezone text DEFAULT 'America/Denver',
 add if not exists startRecordDt date DEFAULT '2022-12-22',
 add if not exists endRecordDt date DEFAULT null,
 add if not exists pi_ID int DEFAULT 1;
