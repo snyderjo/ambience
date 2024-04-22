@@ -1,2 +1,2 @@
 alter table if exists ambience_test.location
-add constraint pi_ID foreign key references ambience_test.pi (id);
+add constraint fk_loc_pi foreign key (pi_ID) references ambience_test.pi (id);
