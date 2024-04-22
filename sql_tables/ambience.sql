@@ -56,3 +56,13 @@ create table if not exists ambience_test.readings_stage
     accel_y float,
     accel_z float
 );
+
+alter table if exists ambience_test.location
+alter active DROP DEFAULT,
+alter active set not null,
+alter timezone DROP DEFAULT,
+alter timezone set not null,
+alter startRecordDt DROP DEFAULT,
+alter startRecordDt set not null,
+alter pi_ID DROP DEFAULT,
+alter pi_ID set not NULL;
