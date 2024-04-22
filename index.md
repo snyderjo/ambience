@@ -76,6 +76,7 @@ Comparing the ambient measures in my bedroom (and/or living room) against the ex
 ### To-Do
 
 ~~Explore adding a pi-specific id to the `ambience.location` table---potentially a pi-specific table.~~  
+Done!  
 
 Find a non-hardcoded mechanism by which to associate pi readings with a given location/pi.  
 
