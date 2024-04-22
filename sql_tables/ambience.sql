@@ -11,6 +11,22 @@ create table if not exists ambience.location
     room text NOT NULL
 );
 
+create table if not exists ambience.pi
+(
+    id serial PRIMARY KEY,
+    hostname text NOT NULL,
+    username text NOT NULL,
+    pathname text Not NULL DEFAULT '/home/pi/Documents/projects/ambience/output'
+);
+
+alter table if exists ambience.location
+add if not exists active boolean DEFAULT true,
+add if not exists timezone text DEFAULT 'America/Denver',
+add if not exists startRecordDt date DEFAULT '2022-12-22',
+add if not exists endRecordDt date DEFAULT null,
+add if not exists pi_ID int DEFAULT 1;
+
+
 create table if not exists ambience.readings
 (
     reading_id uuid DEFAULT gen_random_uuid () PRIMARY KEY,
@@ -40,3 +56,13 @@ create table if not exists ambience.readings_stage
     accel_y float,
     accel_z float
 );
+
+alter table if exists ambience.location
+alter active DROP DEFAULT,
+alter active set not null,
+alter timezone DROP DEFAULT,
+alter timezone set not null,
+alter startRecordDt DROP DEFAULT,
+alter startRecordDt set not null,
+alter pi_ID DROP DEFAULT,
+alter pi_ID set not NULL;
