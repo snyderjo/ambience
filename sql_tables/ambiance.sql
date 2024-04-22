@@ -1,6 +1,6 @@
-create schema if not exists ambience_test;
+create schema if not exists ambience;
 
-create table if not exists ambience_test.location
+create table if not exists ambience.location
 (
     id serial PRIMARY KEY,
     house_nbr int NOT NULL,
@@ -11,7 +11,7 @@ create table if not exists ambience_test.location
     room text NOT NULL
 );
 
-create table if not exists ambience_test.readings
+create table if not exists ambience.readings
 (
     reading_id uuid DEFAULT gen_random_uuid () PRIMARY KEY,
     reading_dttm timestamptz NOT NULL,
@@ -24,10 +24,10 @@ create table if not exists ambience_test.readings
     accel_x float,
     accel_y float,
     accel_z float,
-    location_id int references ambience_test.location (id)
+    location_id int references ambience.location (id)
 );
 
-create table if not exists ambience_test.readings_stage
+create table if not exists ambience.readings_stage
 (
     reading_dttm timestamp with time zone NOT NULL,
     temp float,

@@ -1,6 +1,6 @@
-create schema if not exists ambience_test;
+create schema if not exists ambience;
 
-create table if not exists ambience_test.location
+create table if not exists ambience.location
 (
     id serial PRIMARY KEY,
     house_nbr int NOT NULL,
@@ -11,7 +11,7 @@ create table if not exists ambience_test.location
     room text NOT NULL
 );
 
-create table if not exists ambience_test.pi
+create table if not exists ambience.pi
 (
     id serial PRIMARY KEY,
     hostname text NOT NULL,
@@ -19,7 +19,7 @@ create table if not exists ambience_test.pi
     pathname text Not NULL DEFAULT '/home/pi/Documents/projects/ambience/output'
 );
 
-alter table if exists ambience_test.location
+alter table if exists ambience.location
 add if not exists active boolean DEFAULT true,
 add if not exists timezone text DEFAULT 'America/Denver',
 add if not exists startRecordDt date DEFAULT '2022-12-22',
@@ -27,7 +27,7 @@ add if not exists endRecordDt date DEFAULT null,
 add if not exists pi_ID int DEFAULT 1;
 
 
-create table if not exists ambience_test.readings
+create table if not exists ambience.readings
 (
     reading_id uuid DEFAULT gen_random_uuid () PRIMARY KEY,
     reading_dttm timestamptz NOT NULL,
@@ -40,10 +40,10 @@ create table if not exists ambience_test.readings
     accel_x float,
     accel_y float,
     accel_z float,
-    location_id int references ambience_test.location (id)
+    location_id int references ambience.location (id)
 );
 
-create table if not exists ambience_test.readings_stage
+create table if not exists ambience.readings_stage
 (
     reading_dttm timestamp with time zone NOT NULL,
     temp float,
@@ -57,7 +57,7 @@ create table if not exists ambience_test.readings_stage
     accel_z float
 );
 
-alter table if exists ambience_test.location
+alter table if exists ambience.location
 alter active DROP DEFAULT,
 alter active set not null,
 alter timezone DROP DEFAULT,
