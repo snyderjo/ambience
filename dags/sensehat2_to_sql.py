@@ -1,4 +1,4 @@
-from sqlalchemy import create_engine, URL, text
+from sqlalchemy import create_engine, text
 from credentials import Username, password
 from airflow import DAG, macros
 from airflow.operators.bash import BashOperator
@@ -15,13 +15,13 @@ OUTPUT_DIR = "/home/john/Documents/projects/ambience/sensehatData2/"
 
 # create a URL string
 
-url_str = URL.create(
-    "postgresql+psycopg2"
-    ,host = "woadamsj-All-Series"
-    ,username = Username
-    ,password = password
-    ,database = "johnsdb"
-)
+# url_str = URL.create(
+#     "postgresql+psycopg2"
+#     ,host = "woadamsj-All-Series"
+#     ,username = Username
+#     ,password = password
+#     ,database = "johnsdb"
+# )
 
 # create a database engine
 query_string = text(
@@ -35,7 +35,7 @@ query_string = text(
     """
     )
 
-engine = create_engine(url_str)
+engine = create_engine(f"postgresql+psycopg2://{Username}:{password}@woadamsj-All-Series:5432/johnsdb")
 
 with engine.connect() as conn:
     result = conn.execute(query_string,{"roomName":ROOM})
@@ -87,7 +87,7 @@ with DAG(
 
     copy_task = BashOperator(
         task_id = 'scp_cmd'
-        ,bash_command = "scp {{ params.PI_USER }}@{{ params.PI_HOST }}:{{ params.PI_PATH }}readings_$filedate.csv {{ params.LOC_OUT_DIR}}"
+        ,bash_command = "scp {{ params.PI_USER }}@{{ params.PI_HOST }}:{{ params.PI_PATH }}/readings_$filedate.csv {{ params.LOC_OUT_DIR}}"
         ,env = {"filedate": '{{ macros.ds_format(macros.ds_add(ds,-1),"%Y-%m-%d","%Y_%m_%d") }}'}
     )
 
@@ -127,7 +127,7 @@ with DAG(
                 %(val)s
             from ambience.readings_stage;
             """
-           ,parameters={"val": {{ params.LOC_ID }} }
+           ,parameters={"val": pihat_loc_id }
     )
 
     clear_stage = PostgresOperator(
