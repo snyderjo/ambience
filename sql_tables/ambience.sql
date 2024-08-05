@@ -57,6 +57,20 @@ create table if not exists ambience.readings_stage
     accel_z float
 );
 
+create table if not exists ambience.readings_stage2
+(
+    reading_dttm timestamp with time zone NOT NULL,
+    temp float,
+    pressure float,
+    humidity float,
+    pitch float,
+    roll float,
+    yaw float,
+    accel_x float,
+    accel_y float,
+    accel_z float
+);
+
 alter table if exists ambience.location
 alter active DROP DEFAULT,
 alter active set not null,

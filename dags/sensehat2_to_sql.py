@@ -53,7 +53,7 @@ def csvToPostgres(path=OUTPUT_DIR,file=""):
     #get_postgres_conn = PostgresHook(postgres_conn_id='ambience').get_conn()
     pg_hook.copy_expert(
         sql="""
-        COPY ambience.readings_stage (reading_dttm,temp,pressure,humidity,pitch,roll,yaw,accel_x,accel_y,accel_z) 
+        COPY ambience.readings_stage2 (reading_dttm,temp,pressure,humidity,pitch,roll,yaw,accel_x,accel_y,accel_z)
         from STDIN WITH CSV DELIMITER as ','
         """
         ,filename=path+file
@@ -125,7 +125,7 @@ with DAG(
                 accel_y,
                 accel_z,
                 %(val)s
-            from ambience.readings_stage;
+            from ambience.readings_stage2;
             """
            ,parameters={"val": pihat_loc_id }
     )
@@ -133,7 +133,7 @@ with DAG(
     clear_stage = PostgresOperator(
         task_id = 'clear_stage'
         ,postgres_conn_id = 'ambience'
-        ,sql = 'delete from ambience.readings_stage where 1 = 1;'
+        ,sql = 'delete from ambience.readings_stage2 where 1 = 1;'
     )
 
     zip_csv = BashOperator(
