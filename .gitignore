@@ -1,2 +1,6 @@
 .DS_Store
-_site/
+_site
+dags/credentials.py
+.env
+dags/__pycache__
+>>>>>>> 0ce40f3fcff320a59eb9c84199abff2693cfb716
