@@ -67,7 +67,7 @@ When graphed in R's ggplot the data appear as follows.
 ### Possible Extensions
 
 ~~Create a recurring jupyter notebook or Rmarkdown report which demonstrates the database state, updated on a regular basis.~~  
-[Done](reports/dailyReportForm.html)!  Just need to make it recurring.
+[Done](reports/dailyReportForm.html)!  ~~Just need to make it recurring.~~  Done!
 
 Adding a second raspberrypi-sensehat, placing it in my living room to look for any deviations between rooms.  
 
@@ -78,7 +78,7 @@ Comparing the ambient measures in my bedroom (and/or living room) against the ex
 ~~Explore adding a pi-specific id to the `ambience.location` table---potentially a pi-specific table.~~  
 Done!  
 
-Find a non-hardcoded mechanism by which to associate pi readings with a given location/pi.  
+~~Find a non-hardcoded mechanism by which to associate pi readings with a given location/pi.~~  Done!
 
 ## Concluding Thoughts
 
