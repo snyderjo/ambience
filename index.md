@@ -69,7 +69,9 @@ When graphed in R's ggplot the data appear as follows.
 ~~Create a recurring jupyter notebook or Rmarkdown report which demonstrates the database state, updated on a regular basis.~~
 [Done](https://snyderjo.github.io/ambience_sleep/)!
 
-Adding a second raspberrypi-sensehat, placing it in my living room to look for any deviations between rooms.  
+~~Adding a second raspberrypi-sensehat, placing it in my living room to look for any deviations between rooms.~~
+[Done](https://snyderjo.github.io/ambience_comparison/)!
+  
 
 Comparing the ambient measures in my bedroom (and/or living room) against the external weather to estimate my electricity and/or heating bill.  
 
