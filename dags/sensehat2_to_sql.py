@@ -70,7 +70,7 @@ with DAG(
     dag_id = 'sensehat2_to_sql'
     ,description = 'this dag moves data from sense hat id 2 to postgres database'
     ,start_date=DAG_start
-    ,catchup = True
+    ,catchup = False
     ,schedule_interval = '10 3 * * *'
     ,params={
         'PI_USER':pihat_username
