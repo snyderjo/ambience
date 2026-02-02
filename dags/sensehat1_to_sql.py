@@ -65,13 +65,15 @@ default_args = {
     ,'retry_delay': timedelta(minutes=1)
 }
 
+pihat_hostname = pihat_hostname + '.local'
+
 
 with DAG(
-    dag_id = 'sensehat2_to_sql'
-    ,description = 'this dag moves data from sense hat id 2 to postgres database'
+    dag_id = 'sensehat1_to_sql'
+    ,description = 'this dag moves data from sense hat id 1 to postgres database'
     ,start_date=DAG_start
-    ,catchup = True
-    ,schedule_interval = '10 3 * * *'
+    ,catchup = False
+    ,schedule_interval = '00 3 * * *'
     ,params={
         'PI_USER':pihat_username
         ,'PI_HOST':pihat_hostname
