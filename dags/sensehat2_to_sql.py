@@ -65,6 +65,7 @@ default_args = {
     ,'retry_delay': timedelta(minutes=1)
 }
 
+pihat_hostname = pihat_hostname + '.local'
 
 with DAG(
     dag_id = 'sensehat2_to_sql'
